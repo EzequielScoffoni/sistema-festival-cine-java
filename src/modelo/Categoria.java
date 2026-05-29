@@ -1,0 +1,28 @@
+package modelo;
+
+public class Categoria {
+
+    private String tipoCategoria;
+    private String descripcion;
+
+    public Categoria(String tipoCategoria, String descripcion) {
+        this.tipoCategoria = tipoCategoria;
+        this.descripcion = descripcion;
+    }
+
+    public String getTipoCategoria() {
+        return tipoCategoria;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setTipoCategoria(String tipoCategoria) {
+        this.tipoCategoria = tipoCategoria;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+}

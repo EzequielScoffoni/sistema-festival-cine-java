@@ -1,0 +1,40 @@
+package modelo;
+
+import java.util.Date;
+
+public class Promocion {
+
+    private String codigoPromocion;
+    private double porcentajeDescuento;
+    private Date fechaVencimiento;
+
+    public Promocion(String codigoPromocion, double porcentajeDescuento, Date fechaVencimiento) {
+        this.codigoPromocion = codigoPromocion;
+        this.porcentajeDescuento = porcentajeDescuento;
+        this.fechaVencimiento = fechaVencimiento;
+    }
+
+    public String getCodigoPromocion() {
+        return codigoPromocion;
+    }
+
+    public double getPorcentajeDescuento() {
+        return porcentajeDescuento;
+    }
+
+    public Date getFechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    public void setCodigoPromocion(String codigoPromocion) {
+        this.codigoPromocion = codigoPromocion;
+    }
+
+    public void setPorcentajeDescuento(double porcentajeDescuento) {
+        this.porcentajeDescuento = porcentajeDescuento;
+    }
+
+    public void setFechaVencimiento(Date fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
+    }
+}

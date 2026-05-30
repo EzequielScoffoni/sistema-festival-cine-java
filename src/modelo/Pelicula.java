@@ -21,6 +21,18 @@ public class Pelicula {
         this.categorias = new HashSet<>();
     }
 
+    public boolean agregarActor (Actor actor) {
+        return actores.add(actor);
+    }
+
+    public boolean agregarCategoria (Categoria categoria) {
+        return categorias.add(categoria);
+    }
+
+    public String obtenerInformacion () {
+        return "Titulo: " + titulo + "Genero: " + genero + "Duración: " + duracion + "Actores: " + actores + "Director: " + director + "Categorias: " + categorias;
+    }
+
     public String getTitulo() {
         return titulo;
     }

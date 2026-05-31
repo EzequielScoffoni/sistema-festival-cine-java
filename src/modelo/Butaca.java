@@ -12,6 +12,22 @@ public class Butaca {
         this.disponibilidad = disponibilidad;
     }
 
+    public boolean verificarDisponibilidad () {
+        if (disponibilidad){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean seleccionarButaca () {
+        if (verificarDisponibilidad()){
+            disponibilidad = false;
+            return true;
+        }
+        return false;
+    }
+
     public int getNroButaca() {
         return nroButaca;
     }

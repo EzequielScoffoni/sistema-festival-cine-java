@@ -17,6 +17,13 @@ public class Espectador extends Persona {
         this.promociones = new HashSet<>();
     }
 
+    public boolean comprarEntrada (Entrada entrada) {
+        if (entrada.generarEntrada()){
+            return true;
+        }
+        return false;
+    }
+
     public int getDni() {
         return dni;
     }

@@ -12,6 +12,21 @@ public class Entrada {
         this.butaca = butaca;
     }
 
+    public boolean validarEntrada () {
+        if (funcion.verificarDisponibilidad() && butaca.verificarDisponibilidad()) {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean generarEntrada () {
+        if (validarEntrada()) {
+            butaca.seleccionarButaca();
+            return true;
+        }
+        return false;
+    }
+
     public Espectador getEspectador() {
         return espectador;
     }

@@ -22,6 +22,14 @@ public class Promocion {
         return false;
     }
 
+    public double aplicarDescuento (double monto) {
+        if (validarPromocion()){
+            double descuento = monto * porcentajeDescuento / 100;
+            return descuento;
+        }
+        return 0;
+    }
+
     public String getCodigoPromocion() {
         return codigoPromocion;
     }

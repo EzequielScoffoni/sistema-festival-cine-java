@@ -17,6 +17,22 @@ public class Pago {
         this.promocion = promocion;
     }
 
+    public double calcularPago () {
+        if (promocion.validarPromocion()) {
+            descuentoAplicado = promocion.aplicarDescuento(montoTotal);
+            double resultado = montoTotal - descuentoAplicado;
+            return resultado;
+        }
+        return montoTotal;
+    }
+
+    public boolean registrarPago () {
+        if (calcularPago() > 0) {
+            return true;
+        }
+        return false;
+    }
+
     public double getMontoTotal() {
         return montoTotal;
     }

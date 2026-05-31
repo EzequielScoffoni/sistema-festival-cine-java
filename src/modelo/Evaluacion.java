@@ -12,6 +12,21 @@ public class Evaluacion {
         this.jurado = jurado;
     }
 
+    public void asignarPuntaje (int puntaje) {
+        if ((puntaje > 0) && (puntaje <= 10) ){
+            this.puntaje = puntaje;
+        } else {
+            System.out.println("Se genero un error en el puntaje.");
+        }
+    }
+
+    public boolean registrarEvaluacion () {
+        if (puntaje > 0 && puntaje <= 10){
+            return true;
+        }
+        return false;
+    }
+
     public int getPuntaje() {
         return puntaje;
     }

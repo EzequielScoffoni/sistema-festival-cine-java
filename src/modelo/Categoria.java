@@ -10,6 +10,10 @@ public class Categoria {
         this.descripcion = descripcion;
     }
 
+    public String mostrarCategoria () {
+        return "La categoria es: " + " " + tipoCategoria + "Su descripcion: " + " " + descripcion;
+    }
+
     public String getTipoCategoria() {
         return tipoCategoria;
     }

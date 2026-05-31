@@ -14,6 +14,14 @@ public class Promocion {
         this.fechaVencimiento = fechaVencimiento;
     }
 
+    public boolean validarPromocion () {
+        Date fechaActual = new Date();
+        if (fechaActual.compareTo(fechaVencimiento) <= 0) {
+            return true;
+        }
+        return false;
+    }
+
     public String getCodigoPromocion() {
         return codigoPromocion;
     }

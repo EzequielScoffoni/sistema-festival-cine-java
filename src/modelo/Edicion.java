@@ -20,6 +20,10 @@ public class Edicion {
         this.funciones = new HashSet<>();
     }
 
+    public boolean agregarFuncion (Funcion funcion) {
+        return funciones.add(funcion);
+    }
+
     public int getNroEdicion() {
         return nroEdicion;
     }

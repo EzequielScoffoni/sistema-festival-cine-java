@@ -22,6 +22,22 @@ public class Funcion {
         this.entradas = entradas;
     }
 
+    public boolean verificarDisponibilidad () {
+        if (entradas.size() < sala.getButacas().size()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean registrarEntrada (Entrada entrada) {
+        if (verificarDisponibilidad()) {
+            entradas.add(entrada);
+            return true;
+        }
+        return false;
+    }
+
     public Date getFechaFuncion() {
         return fechaFuncion;
     }

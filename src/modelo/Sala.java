@@ -1,6 +1,7 @@
 package modelo;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class Sala {
@@ -16,7 +17,18 @@ public class Sala {
     }
 
     public boolean asignarFuncion (Funcion funcion) {
-        return funciones.add(funcion);
+        for (Iterator<Funcion> i = funciones.iterator(); i.hasNext();) {
+            Funcion funcionActual = i.next();
+            if (funcionActual.getFechaFuncion().equals(funcion.getFechaFuncion()) && funcionActual.getHoraFuncion().equals(funcion.getHoraFuncion())) {
+                return false;
+            }
+        }
+        funciones.add(funcion);
+        return true;
+    }
+
+    public boolean agregarButuca (Butaca butaca) {
+        return butacas.add(butaca);
     }
 
     public int getNroSala() {

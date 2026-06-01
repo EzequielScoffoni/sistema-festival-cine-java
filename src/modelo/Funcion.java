@@ -38,6 +38,14 @@ public class Funcion {
         return false;
     }
 
+    public int obtenerOcupacion () {
+        return entradas.size();
+    }
+
+    public double obtenerPorcentajeOcupacion () {
+        return obtenerOcupacion() * 100 / sala.getButacas().size();
+    }
+
     public Date getFechaFuncion() {
         return fechaFuncion;
     }

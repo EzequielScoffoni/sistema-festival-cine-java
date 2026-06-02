@@ -10,7 +10,7 @@ public class Espectador extends Persona {
     private String email;
     private Set<Promocion> promociones;
 
-    public Espectador(String nombre, String apellido, int edad, Date fechaNacimiento, String sexo, int dni, String email) {
+    public Espectador(String nombre, String apellido, int edad, String fechaNacimiento, String sexo, int dni, String email) {
         super(nombre, apellido, edad, fechaNacimiento, sexo);
         this.dni = dni;
         this.email = email;

@@ -6,10 +6,10 @@ public abstract class Persona {
     private String nombre;
     private String apellido;
     private int edad;
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
     private String sexo;
 
-    public Persona(String nombre, String apellido, int edad, Date fechaNacimiento, String sexo) {
+    public Persona(String nombre, String apellido, int edad, String fechaNacimiento, String sexo) {
         this.sexo = sexo;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -29,7 +29,7 @@ public abstract class Persona {
         return edad;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
@@ -49,7 +49,7 @@ public abstract class Persona {
         this.edad = edad;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 

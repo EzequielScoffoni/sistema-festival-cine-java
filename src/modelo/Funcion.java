@@ -6,14 +6,14 @@ import java.util.Set;
 
 public class Funcion {
 
-    private Date fechaFuncion;
-    private Time horaFuncion;
+    private String fechaFuncion;
+    private String horaFuncion;
     private Pelicula pelicula;
     private Edicion edicion;
     private Sala sala;
     private Set<Entrada> entradas;
 
-    public Funcion(Date fechaFuncion, Time horaFuncion, Pelicula pelicula, Edicion edicion, Sala sala, Set<Entrada> entradas) {
+    public Funcion(String fechaFuncion, String horaFuncion, Pelicula pelicula, Edicion edicion, Sala sala, Set<Entrada> entradas) {
         this.fechaFuncion = fechaFuncion;
         this.horaFuncion = horaFuncion;
         this.pelicula = pelicula;
@@ -46,11 +46,11 @@ public class Funcion {
         return obtenerOcupacion() * 100 / sala.getButacas().size();
     }
 
-    public Date getFechaFuncion() {
+    public String getFechaFuncion() {
         return fechaFuncion;
     }
 
-    public Time getHoraFuncion() {
+    public String getHoraFuncion() {
         return horaFuncion;
     }
 
@@ -70,11 +70,11 @@ public class Funcion {
         return entradas;
     }
 
-    public void setFechaFuncion(Date fechaFuncion) {
+    public void setFechaFuncion(String fechaFuncion) {
         this.fechaFuncion = fechaFuncion;
     }
 
-    public void setHoraFuncion(Time horaFuncion) {
+    public void setHoraFuncion(String horaFuncion) {
         this.horaFuncion = horaFuncion;
     }
 

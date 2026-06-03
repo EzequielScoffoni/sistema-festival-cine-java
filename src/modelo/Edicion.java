@@ -8,11 +8,11 @@ public class Edicion {
 
     private int nroEdicion;
     private String ciudad;
-    private Date fecha;
+    private String fecha;
     private Festival festival;
     private Set<Funcion> funciones;
 
-    public Edicion(int nroEdicion, String ciudad, Date fecha, Festival festival) {
+    public Edicion(int nroEdicion, String ciudad, String fecha, Festival festival) {
         this.nroEdicion = nroEdicion;
         this.ciudad = ciudad;
         this.fecha = fecha;
@@ -32,7 +32,7 @@ public class Edicion {
         return ciudad;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
@@ -52,7 +52,7 @@ public class Edicion {
         this.ciudad = ciudad;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 

@@ -6,6 +6,7 @@ import pesistencia.FuncionCSV;
 import pesistencia.PeliculaCSV;
 
 import java.util.HashSet;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -25,8 +26,13 @@ public class Consola {
             System.out.println("5. Gestión evaluaciones");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+            try {
+                opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Debe ingresar un numero");
+                scanner.nextLine();
+                continue;
+            }
             switch (opcion){
                 case 1:
                     menuFestival(scanner);
@@ -45,6 +51,9 @@ public class Consola {
                     break;
                 case 0:
                     System.out.println("Saliendo...");
+                default:
+                    System.out.println("Opcion invalida.");
+                    break;
             }
         }
     }
@@ -58,8 +67,13 @@ public class Consola {
             System.out.println("3. Mostrar ediciones");
             System.out.println("0. Volver");
             System.out.print("Seleccione una opcion: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+            try {
+                opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Debe ingresar un numero");
+                scanner.nextLine();
+                continue;
+            }
             switch (opcion){
                 case 1:
                     System.out.println("Ingresa el nombre del festival: ");
@@ -86,6 +100,9 @@ public class Consola {
                     break;
                 case 0:
                     System.out.println("Volviendo...");
+                default:
+                    System.out.println("Opcion invalida.");
+                    break;
             }
         }
     }
@@ -101,8 +118,13 @@ public class Consola {
             System.out.println("5. Mostrar peliculas");
             System.out.println("0. Volver");
             System.out.print("Seleccione una opcion: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+            try {
+                opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Debe ingresar un numero");
+                scanner.nextLine();
+                continue;
+            }
             switch (opcion){
                 case 1:
                     System.out.println("Ingresa el titulo de la pelicula:");
@@ -173,6 +195,9 @@ public class Consola {
                     break;
                 case 0:
                     System.out.println("Volviendo...");
+                default:
+                    System.out.println("Opcion invalida.");
+                    break;
             }
         }
     }
@@ -188,8 +213,13 @@ public class Consola {
             System.out.println("5. Consultar porcentaje ocupación");
             System.out.println("0. Volver");
             System.out.print("Seleccione una opcion: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+            try {
+                opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Debe ingresar un numero");
+                scanner.nextLine();
+                continue;
+            }
             switch (opcion){
                 case 1:
                     System.out.println("Ingresa la fecha de la función: ");
@@ -276,6 +306,9 @@ public class Consola {
                     break;
                 case 0:
                     System.out.println("Volviendo...");
+                default:
+                    System.out.println("Opcion invalida.");
+                    break;
             }
         }
     }
@@ -289,8 +322,13 @@ public class Consola {
             System.out.println("3. Mostrar entradas");
             System.out.println("0. Volver");
             System.out.print("Seleccione una opcion: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+            try {
+                opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Debe ingresar un numero");
+                scanner.nextLine();
+                continue;
+            }
             switch (opcion){
                 case 1:
                     System.out.println("Ingresa el nombre del espectador: ");
@@ -351,6 +389,9 @@ public class Consola {
                     break;
                 case 0:
                     System.out.println("Volviendo...");
+                default:
+                    System.out.println("Opcion invalida.");
+                    break;
             }
         }
     }
@@ -364,8 +405,13 @@ public class Consola {
             System.out.println("3. Mostrar pelicula ganadora");
             System.out.println("0. Volver");
             System.out.print("Seleccione una opcion: ");
-            opcion = scanner.nextInt();
-            scanner.nextLine();
+            try {
+                opcion = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("Debe ingresar un numero");
+                scanner.nextLine();
+                continue;
+            }
             switch (opcion){
                 case 1:
                     System.out.println("Ingrese el nombre del jurado: ");
@@ -427,6 +473,9 @@ public class Consola {
                     break;
                 case 0:
                     System.out.println("Volviendo...");
+                default:
+                    System.out.println("Opcion invalida.");
+                    break;
             }
         }
     }

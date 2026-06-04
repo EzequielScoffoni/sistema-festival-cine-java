@@ -4,10 +4,11 @@ import pesistencia.FuncionCSV;
 import pesistencia.PeliculaCSV;
 
 import java.util.HashSet;
+import ui.Consola;
 
 public class Main {
     public static void main(String[] args) {
-        // Prueba de clases, metodos y persistencia (peliculas.csv)
+        /* //Prueba de clases, metodos y persistencia (peliculas.csv)
         Director director1 = new Director("Christopher", "Nolan", 55, "30/07/1970", "masculino");
         Pelicula pelicula1 = new Pelicula("Interestelar", "Ficcion", 180, director1);
         PeliculaCSV peliculaCSV1 = new PeliculaCSV();
@@ -22,7 +23,9 @@ public class Main {
 
         FuncionCSV funcionCSV1 = new FuncionCSV();
         funcionCSV1.guardarFuncion(funcion1);
-        funcionCSV1.leerFuncion();
+        funcionCSV1.leerFuncion(); */
+        Consola consola = new Consola();
+        consola.iniciar();
 
     }
 }

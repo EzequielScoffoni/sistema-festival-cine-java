@@ -3,12 +3,12 @@ SISTEMA DE GESTIÓN DE FESTIVAL DE CINE
 Supuestos realizados:
 
 * Se asumió que los datos ingresados por el usuario son válidos para el funcionamiento general del sistema.
-* Para simplificar y por temas de tiempos de entrega la implementación, algunas entidades se generan mediante datos precargados en determinados casos de uso.
+* Para simplificar la implementación y ajustarse a los tiempos de entrega, algunas entidades se generan mediante datos precargados en determinados casos de uso.
 * La visualización de ediciones y entradas se realiza de manera simplificada mediante los casos de uso relacionados.
 * Se asumió que cada evaluación corresponde a una película y a un jurado específico.
 * El sistema de promociones y descuentos fue implementado como extensión de la Etapa 1 mediante las clases Promocion y Pago.
 
-Decisiones relevantes de implementación
+Decisiones relevantes de implementación:
 
 * El proyecto fue organizado en paquetes (modelo, servicios, excepciones, persistencia, ui y app) para separar responsabilidades y mejorar la organización del código.
 * Se aplicó herencia mediante la clase abstracta Persona y sus especializaciones Actor, Director, Jurado y Espectador.

@@ -77,27 +77,4 @@ public class Pelicula {
         return categorias;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
-    }
-
-    public void setActores(Set<Actor> actores) {
-        this.actores = actores;
-    }
-
-    public void setDirector(Director director) {
-        this.director = director;
-    }
-
-    public void setCategorias(Set<Categoria> categorias) {
-        this.categorias = categorias;
-    }
 }

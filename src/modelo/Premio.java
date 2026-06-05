@@ -39,19 +39,4 @@ public class Premio {
         return categoria;
     }
 
-    public void setNombrePremio(String nombrePremio) {
-        this.nombrePremio = nombrePremio;
-    }
-
-    public void setAnio(int anio) {
-        this.anio = anio;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
 }

@@ -39,15 +39,4 @@ public class Evaluacion {
         return jurado;
     }
 
-    public void setPuntaje(int puntaje) {
-        this.puntaje = puntaje;
-    }
-
-    public void setPelicula(Pelicula pelicula) {
-        this.pelicula = pelicula;
-    }
-
-    public void setJurado(Jurado jurado) {
-        this.jurado = jurado;
-    }
 }

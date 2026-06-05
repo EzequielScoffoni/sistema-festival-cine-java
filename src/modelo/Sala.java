@@ -39,11 +39,4 @@ public class Sala {
         return butacas;
     }
 
-    public void setNroSala(int nroSala) {
-        this.nroSala = nroSala;
-    }
-
-    public void setButacas(Set<Butaca> butacas) {
-        this.butacas = butacas;
-    }
 }

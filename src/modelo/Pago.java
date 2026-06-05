@@ -49,19 +49,4 @@ public class Pago {
         return promocion;
     }
 
-    public void setMontoTotal(double montoTotal) {
-        this.montoTotal = montoTotal;
-    }
-
-    public void setDescuentoAplicado(double descuentoAplicado) {
-        this.descuentoAplicado = descuentoAplicado;
-    }
-
-    public void setMetodoPago(String metodoPago) {
-        this.metodoPago = metodoPago;
-    }
-
-    public void setPromocion(Promocion promocion) {
-        this.promocion = promocion;
-    }
 }

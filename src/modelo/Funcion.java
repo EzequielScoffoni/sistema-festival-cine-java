@@ -70,27 +70,4 @@ public class Funcion {
         return entradas;
     }
 
-    public void setFechaFuncion(String fechaFuncion) {
-        this.fechaFuncion = fechaFuncion;
-    }
-
-    public void setHoraFuncion(String horaFuncion) {
-        this.horaFuncion = horaFuncion;
-    }
-
-    public void setPelicula(Pelicula pelicula) {
-        this.pelicula = pelicula;
-    }
-
-    public void setEdicion(Edicion edicion) {
-        this.edicion = edicion;
-    }
-
-    public void setSala(Sala sala) {
-        this.sala = sala;
-    }
-
-    public void setEntradas(Set<Entrada> entradas) {
-        this.entradas = entradas;
-    }
 }

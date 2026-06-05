@@ -39,15 +39,4 @@ public class Entrada {
         return butaca;
     }
 
-    public void setEspectador(Espectador espectador) {
-        this.espectador = espectador;
-    }
-
-    public void setFuncion(Funcion funcion) {
-        this.funcion = funcion;
-    }
-
-    public void setButaca(Butaca butaca) {
-        this.butaca = butaca;
-    }
 }

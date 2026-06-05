@@ -42,15 +42,4 @@ public class Promocion {
         return fechaVencimiento;
     }
 
-    public void setCodigoPromocion(String codigoPromocion) {
-        this.codigoPromocion = codigoPromocion;
-    }
-
-    public void setPorcentajeDescuento(double porcentajeDescuento) {
-        this.porcentajeDescuento = porcentajeDescuento;
-    }
-
-    public void setFechaVencimiento(Date fechaVencimiento) {
-        this.fechaVencimiento = fechaVencimiento;
-    }
 }

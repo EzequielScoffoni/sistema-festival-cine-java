@@ -36,15 +36,8 @@ public class Espectador extends Persona {
         return promociones;
     }
 
-    public void setDni(int dni) {
-        this.dni = dni;
-    }
-
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setPromociones(Set<Promocion> promociones) {
-        this.promociones = promociones;
-    }
 }

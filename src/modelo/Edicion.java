@@ -1,6 +1,5 @@
 package modelo;
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,23 +43,4 @@ public class Edicion {
         return funciones;
     }
 
-    public void setNroEdicion(int nroEdicion) {
-        this.nroEdicion = nroEdicion;
-    }
-
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-
-    public void setFestival(Festival festival) {
-        this.festival = festival;
-    }
-
-    public void setFunciones(Set<Funcion> funciones) {
-        this.funciones = funciones;
-    }
 }

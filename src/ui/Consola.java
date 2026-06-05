@@ -69,6 +69,7 @@ public class Consola {
             System.out.print("Seleccione una opcion: ");
             try {
                 opcion = scanner.nextInt();
+                scanner.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Debe ingresar un numero");
                 scanner.nextLine();
@@ -100,6 +101,7 @@ public class Consola {
                     break;
                 case 0:
                     System.out.println("Volviendo...");
+                    break;
                 default:
                     System.out.println("Opcion invalida.");
                     break;
@@ -120,6 +122,7 @@ public class Consola {
             System.out.print("Seleccione una opcion: ");
             try {
                 opcion = scanner.nextInt();
+                scanner.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Debe ingresar un numero");
                 scanner.nextLine();
@@ -195,6 +198,7 @@ public class Consola {
                     break;
                 case 0:
                     System.out.println("Volviendo...");
+                    break;
                 default:
                     System.out.println("Opcion invalida.");
                     break;
@@ -215,6 +219,7 @@ public class Consola {
             System.out.print("Seleccione una opcion: ");
             try {
                 opcion = scanner.nextInt();
+                scanner.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Debe ingresar un numero");
                 scanner.nextLine();
@@ -306,6 +311,7 @@ public class Consola {
                     break;
                 case 0:
                     System.out.println("Volviendo...");
+                    break;
                 default:
                     System.out.println("Opcion invalida.");
                     break;
@@ -324,6 +330,7 @@ public class Consola {
             System.out.print("Seleccione una opcion: ");
             try {
                 opcion = scanner.nextInt();
+                scanner.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Debe ingresar un numero");
                 scanner.nextLine();
@@ -389,6 +396,7 @@ public class Consola {
                     break;
                 case 0:
                     System.out.println("Volviendo...");
+                    break;
                 default:
                     System.out.println("Opcion invalida.");
                     break;
@@ -407,6 +415,7 @@ public class Consola {
             System.out.print("Seleccione una opcion: ");
             try {
                 opcion = scanner.nextInt();
+                scanner.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Debe ingresar un numero");
                 scanner.nextLine();
@@ -473,6 +482,7 @@ public class Consola {
                     break;
                 case 0:
                     System.out.println("Volviendo...");
+                    break;
                 default:
                     System.out.println("Opcion invalida.");
                     break;

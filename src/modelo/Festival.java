@@ -36,11 +36,4 @@ public class Festival {
         return ediciones;
     }
 
-    public void setNombreFestival(String nombreFestival) {
-        this.nombreFestival = nombreFestival;
-    }
-
-    public void setEdicion(Set<Edicion> edicion) {
-        this.ediciones = edicion;
-    }
 }

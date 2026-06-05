@@ -22,11 +22,4 @@ public class Categoria {
         return descripcion;
     }
 
-    public void setTipoCategoria(String tipoCategoria) {
-        this.tipoCategoria = tipoCategoria;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
 }

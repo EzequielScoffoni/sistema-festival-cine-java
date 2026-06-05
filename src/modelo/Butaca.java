@@ -40,15 +40,4 @@ public class Butaca {
         return disponibilidad;
     }
 
-    public void setNroButaca(int nroButaca) {
-        this.nroButaca = nroButaca;
-    }
-
-    public void setNroFila(int nroFila) {
-        this.nroFila = nroFila;
-    }
-
-    public void setDisponibilidad(boolean disponibilidad) {
-        this.disponibilidad = disponibilidad;
-    }
 }

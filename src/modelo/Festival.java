@@ -36,4 +36,31 @@ public class Festival {
         return ediciones;
     }
 
+    @Override
+    public String toString() {
+        return nombreFestival;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Festival festival = (Festival) o;
+
+        if (!nombreFestival.equals(festival.nombreFestival)){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public int hashCode(){
+        return nombreFestival.hashCode();
+    }
+
 }

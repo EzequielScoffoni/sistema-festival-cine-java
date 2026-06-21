@@ -43,4 +43,37 @@ public class Edicion {
         return funciones;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Edicion edicion = (Edicion) o;
+
+        if (nroEdicion != edicion.nroEdicion) {
+            return false;
+        }
+
+        if (!festival.equals(edicion.festival)) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return nroEdicion + festival.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Edición " + nroEdicion + " - " + ciudad + " - " + fecha;
+    }
+
 }

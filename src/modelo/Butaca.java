@@ -40,4 +40,32 @@ public class Butaca {
         return disponibilidad;
     }
 
+    @Override
+    public String toString() {
+        return "Butaca " + nroButaca;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Butaca butaca = (Butaca) o;
+
+        if (nroButaca != butaca.nroButaca) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(nroButaca);
+    }
+
 }

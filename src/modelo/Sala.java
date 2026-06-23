@@ -39,4 +39,26 @@ public class Sala {
         return butacas;
     }
 
+    @Override
+    public String toString() {
+        return "Sala " + nroSala;
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Sala sala = (Sala) o;
+
+        return nroSala == sala.nroSala;
+    }
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(nroSala);
+    }
+
 }

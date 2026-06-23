@@ -70,4 +70,32 @@ public class Funcion {
         return entradas;
     }
 
+    public String obtenerInformacion() {
+        return "Película: " + pelicula.getTitulo() + "\nFecha: " + fechaFuncion + "\nHora: " + horaFuncion + "\nSala: " + sala.getNroSala() + "\nEdición: " + edicion.getNroEdicion();
+    }
+
+    @Override
+    public String toString() {
+        return pelicula.getTitulo() + " - " + fechaFuncion + " " + horaFuncion + " - Sala " + sala.getNroSala();
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Funcion funcion = (Funcion) o;
+
+        return fechaFuncion.equals(funcion.fechaFuncion) && horaFuncion.equals(funcion.horaFuncion) && pelicula.equals(funcion.pelicula) && sala.equals(funcion.sala);
+    }
+
+    @Override
+    public int hashCode() {
+        return (fechaFuncion + horaFuncion + pelicula.getTitulo() + sala.getNroSala()).hashCode();
+    }
+
+
 }

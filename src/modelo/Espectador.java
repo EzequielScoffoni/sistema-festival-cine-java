@@ -40,4 +40,32 @@ public class Espectador extends Persona {
         this.email = email;
     }
 
+    @Override
+    public boolean equals(Object o){
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Espectador espectador = (Espectador) o;
+
+        if (dni != espectador.dni){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(dni);
+    }
+
+    @Override
+    public String toString() {
+        return getNombre() + " " + getApellido() + " - DNI: " + dni;
+    }
+
 }

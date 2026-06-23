@@ -39,4 +39,30 @@ public class Evaluacion {
         return jurado;
     }
 
+    public String obtenerInformacion() {
+        return "Película: " + pelicula.getTitulo() + "\nJurado: " + jurado + "\nPuntaje: " + puntaje;
+    }
+    @Override
+    public boolean equals(Object o){
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Evaluacion evaluacion = (Evaluacion) o;
+
+        if (!pelicula.equals(evaluacion.pelicula)) {
+            return false;
+        } else {
+            return jurado.equals(evaluacion.jurado);
+        }
+    }
+    @Override
+    public int hashCode() {
+        return pelicula.hashCode() + jurado.hashCode();
+    }
+
 }

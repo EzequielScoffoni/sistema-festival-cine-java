@@ -56,4 +56,29 @@ public abstract class Persona {
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
+    @Override
+    public String toString() {
+        return nombre + " " + apellido;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Persona persona = (Persona) o;
+
+        return nombre.equals(persona.nombre) && apellido.equals(persona.apellido) && fechaNacimiento.equals(persona.fechaNacimiento);
+    }
+
+    @Override
+    public int hashCode() {
+        return nombre.hashCode() + apellido.hashCode() + fechaNacimiento.hashCode();
+    }
 }

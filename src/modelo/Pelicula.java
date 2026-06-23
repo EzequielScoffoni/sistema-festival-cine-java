@@ -50,7 +50,7 @@ public class Pelicula {
     }
 
     public String obtenerInformacion () {
-        return "Titulo: " + titulo + "Genero: " + genero + "Duración: " + duracion + "Actores: " + actores + "Director: " + director + "Categorias: " + categorias;
+        return "Título: " + titulo + "\nGénero: " + genero + "\nDuración: " + duracion + "\nDirector: " + director + "\nActores: " + actores + "\nCategorías: " + categorias;
     }
 
     public String getTitulo() {
@@ -75,6 +75,33 @@ public class Pelicula {
 
     public Set<Categoria> getCategorias() {
         return categorias;
+    }
+
+    @Override
+    public String toString() {
+        return titulo;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Pelicula pelicula = (Pelicula) o;
+
+        if (!titulo.equals(pelicula.titulo)){
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    @Override
+    public int hashCode(){
+        return titulo.hashCode();
     }
 
 }

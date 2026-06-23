@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.Objects;
+
 public class Entrada {
 
     private Espectador espectador;
@@ -37,6 +39,39 @@ public class Entrada {
 
     public Butaca getButaca() {
         return butaca;
+    }
+
+    @Override
+    public String toString() {
+        return espectador.getNombre() + " " + espectador.getApellido() + " - " + funcion.getPelicula().getTitulo();
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Entrada entrada = (Entrada) o;
+
+        if (!funcion.equals(entrada.funcion)) {
+            return false;
+        }
+
+        if (!butaca.equals(entrada.butaca)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    @Override
+    public int hashCode() {
+        return Objects.hash(funcion, butaca);
+    }
+    public String obtenerInformacion() {
+        return "Espectador: " + espectador.getNombre() + " " + espectador.getApellido() + "\nPelícula: " + funcion.getPelicula().getTitulo() + "\nFecha: " + funcion.getFechaFuncion() + "\nHora: " + funcion.getHoraFuncion() + "\nButaca: " + butaca.getNroButaca();
     }
 
 }

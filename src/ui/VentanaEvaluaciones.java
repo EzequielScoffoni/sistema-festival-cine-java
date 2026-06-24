@@ -39,40 +39,51 @@ public class VentanaEvaluaciones extends JFrame {
         JButton botonPromedio = new JButton("Calcular promedio pelicula");
         JButton botonPeliculaGanadora = new JButton("Mostrar pelicula ganadora");
 
+        Dimension tamañoBoton = new Dimension(200, 35);
+
+        JButton[] botones = {botonJurado, botonEvaluacion, botonPromedio, botonPeliculaGanadora};
+
+        for (int i = 0; i < botones.length; i++) {
+            botones[i].setMaximumSize(
+                    tamañoBoton
+            );
+        }
+
         panelMenu.setLayout(new BoxLayout(panelMenu, BoxLayout.Y_AXIS));
 
         panelFormulario = new JPanel();
 
+        panelTitulo.add(Box.createVerticalStrut(60));
         panelTitulo.add(titulo);
+        panelMenu.add(Box.createVerticalStrut(10));
         panelMenu.add(botonJurado);
+        panelMenu.add(Box.createVerticalStrut(10));
         panelMenu.add(botonEvaluacion);
+        panelMenu.add(Box.createVerticalStrut(10));
         panelMenu.add(botonPromedio);
+        panelMenu.add(Box.createVerticalStrut(10));
         panelMenu.add(botonPeliculaGanadora);
 
         juradoCSV = new JuradoCSV();
-        jurados = SistemaFestival.getJurados();
-        jurados.addAll(juradoCSV.cargarJurados());
-
         evaluacionCSV = new EvaluacionCSV();
+
+        jurados = SistemaFestival.getJurados();
         evaluaciones = SistemaFestival.getEvaluaciones();
-
         peliculas = SistemaFestival.getPeliculas();
-
-        evaluacionCSV.cargarEvaluaciones(evaluaciones, peliculas, jurados);
 
         botonJurado.addActionListener(e -> {
             System.out.println("Boton crear jurado presionado");
             panelFormulario.removeAll();
 
-            JLabel nombreJurado = new JLabel("Nombre del actor: ");
+            JLabel nombreJurado = new JLabel("Nombre del jurado: ");
             JTextField datoNombreJurado = new JTextField(20);
-            JLabel apellidoJurado = new JLabel("Apellido del actor: ");
+            JLabel apellidoJurado = new JLabel("Apellido del jurado: ");
             JTextField datoApellidoJurado = new JTextField(20);
-            JLabel edadJurado = new JLabel("Edad del actor: ");
+            JLabel edadJurado = new JLabel("Edad del jurado: ");
             JTextField datoEdadJurado = new JTextField(20);
-            JLabel fechaNacimientoJurado = new JLabel("Fecha de nacimiento del actor: ");
+            JLabel fechaNacimientoJurado = new JLabel("Fecha de nacimiento del jurado: ");
             JTextField datoFechaNacimiento = new JTextField(20);
-            JLabel sexoJurado = new JLabel("Sexo del actor: ");
+            JLabel sexoJurado = new JLabel("Sexo del jurado: ");
             JTextField datoSexo = new JTextField(20);
             JButton botonGuardar = new JButton("Guardar");
             JButton botonCancelar = new JButton("Cancelar");

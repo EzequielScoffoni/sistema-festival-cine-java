@@ -41,16 +41,33 @@ public class VentanaFunciones extends JFrame {
         JButton botonOcupacion = new JButton("Consultar ocupacion");
         JButton botonPorcentajeOcupacion = new JButton("Porcentaje ocupacion");
 
+        Dimension tamañoBoton = new Dimension(170, 35);
+
+        JButton[] botones = {botonRegistrarSala, botonProgramarFuncion, botonDisponibilidad, botonMostrarFunciones, botonOcupacion, botonPorcentajeOcupacion};
+
+        for (int i = 0; i < botones.length; i++) {
+            botones[i].setMaximumSize(
+                    tamañoBoton
+            );
+        }
+
         panelMenu.setLayout(new BoxLayout(panelMenu, BoxLayout.Y_AXIS));
 
         panelFormulario = new JPanel();
 
+        panelTitulo.add(Box.createVerticalStrut(60));
         panelTitulo.add(titulo);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonRegistrarSala);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonProgramarFuncion);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonDisponibilidad);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonMostrarFunciones);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonOcupacion);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonPorcentajeOcupacion);
 
         peliculas = SistemaFestival.getPeliculas();
@@ -61,9 +78,6 @@ public class VentanaFunciones extends JFrame {
         salaCSV = new SalaCSV();
         funcionCSV = new FuncionCSV();
 
-        salas.addAll(salaCSV.cargarSalas());
-
-        funcionCSV.cargarFunciones(funciones, peliculas, salas, festivales);
 
         botonRegistrarSala.addActionListener(e -> {
             System.out.println("Boton registrar sala presionado");

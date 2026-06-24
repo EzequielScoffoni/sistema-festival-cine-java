@@ -36,41 +36,51 @@ public class VentanaPeliculas extends JFrame {
         JButton botonRegistrarPelicula = new JButton("Registrar pelicula");
         JButton botonRegistrarDirector = new JButton("Registrar director");
         JButton botonRegistrarActor = new JButton("Registrar actor");
-        JButton botonAsociarActor = new JButton("Asociar actor a pelicula");
+        JButton botonAsociarActor = new JButton("Asociar actor");
         JButton botonAsociarCat = new JButton("Asociar categoria");
         JButton botonMostrarPeliculas = new JButton("Mostrar peliculas");
+
+        Dimension tamañoBoton = new Dimension(150, 35);
+
+        JButton[] botones = {botonRegistrarPelicula, botonRegistrarDirector, botonRegistrarActor, botonAsociarActor, botonAsociarCat, botonMostrarPeliculas};
+
+        for (int i = 0; i < botones.length; i++) {
+            botones[i].setMaximumSize(
+                    tamañoBoton
+            );
+        }
 
         panelMenu.setLayout(new BoxLayout(panelMenu, BoxLayout.Y_AXIS));
 
         panelFormulario = new JPanel();
 
+        panelTitulo.add(Box.createVerticalStrut(60));
         panelTitulo.add(titulo);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonRegistrarPelicula);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonRegistrarDirector);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonRegistrarActor);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonAsociarActor);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonAsociarCat);
+        panelMenu.add(Box.createVerticalStrut(5));
         panelMenu.add(botonMostrarPeliculas);
 
         peliculaCSV = new PeliculaCSV();
         peliculas = SistemaFestival.getPeliculas();
-        peliculas.addAll(peliculaCSV.cargarPeliculas());
 
         directorCSV = new DirectorCSV();
         directores = SistemaFestival.getDirectores();
-        directores.addAll(directorCSV.cargarDirectores());
 
         actorCSV = new ActorCSV();
         actores = SistemaFestival.getActores();
-        actores.addAll(actorCSV.cargarActores());
 
         categoriaCSV = new CategoriaCSV();
-        categoriaCSV.cargarCategorias(peliculas);
 
         actorPeliculaCSV = new ActorPeliculaCSV();
-        peliculas.addAll(peliculaCSV.cargarPeliculas());
-        actores.addAll(actorCSV.cargarActores());
-        actorPeliculaCSV.cargarActoresPeliculas(peliculas, actores);
 
         botonRegistrarPelicula.addActionListener(e -> {
             System.out.println("Boton crear pelicula presionado");
@@ -186,15 +196,15 @@ public class VentanaPeliculas extends JFrame {
             System.out.println("Boton crear director presionado");
             panelFormulario.removeAll();
 
-            JLabel nombreDirector = new JLabel("Nombre del director de la pelicula: ");
+            JLabel nombreDirector = new JLabel("Nombre del director: ");
             JTextField datoNombreDirector = new JTextField(20);
-            JLabel apellidoDirector = new JLabel("Apellido del director de la pelicula: ");
+            JLabel apellidoDirector = new JLabel("Apellido del director: ");
             JTextField datoApellidoDirector = new JTextField(20);
-            JLabel edadDirector = new JLabel("Edad del director de la pelicula: ");
+            JLabel edadDirector = new JLabel("Edad del director: ");
             JTextField datoEdadDirector = new JTextField(20);
-            JLabel fechaNacimientoDirector = new JLabel("Fecha de nacimiento del director de la pelicula: ");
+            JLabel fechaNacimientoDirector = new JLabel("Fecha de nacimiento del director: ");
             JTextField datoFechaNacimiento = new JTextField(20);
-            JLabel sexo = new JLabel("Sexo del director de la pelicula: ");
+            JLabel sexo = new JLabel("Sexo del director: ");
             JTextField datoSexo = new JTextField(20);
             JButton botonGuardar = new JButton("Guardar");
             JButton botonCancelar = new JButton("Cancelar");

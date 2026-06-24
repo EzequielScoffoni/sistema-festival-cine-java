@@ -35,24 +35,36 @@ public class VentanaEntradas extends JFrame {
         JButton botonVentaEntrada = new JButton("Vender entrada");
         JButton botonMostrarEntradas = new JButton("Mostrar entradas");
 
+        Dimension tamañoBoton = new Dimension(170, 35);
+
+        JButton[] botones = {botonEspectador, botonVentaEntrada, botonMostrarEntradas};
+
+        for (int i = 0; i < botones.length; i++) {
+            botones[i].setMaximumSize(
+                    tamañoBoton
+            );
+        }
+
         panelMenu.setLayout(new BoxLayout(panelMenu, BoxLayout.Y_AXIS));
 
         panelFormulario = new JPanel();
 
+        panelTitulo.add(Box.createVerticalStrut(60));
         panelTitulo.add(titulo);
+        panelMenu.add(Box.createVerticalStrut(10));
         panelMenu.add(botonEspectador);
+        panelMenu.add(Box.createVerticalStrut(10));
         panelMenu.add(botonVentaEntrada);
+        panelMenu.add(Box.createVerticalStrut(10));
         panelMenu.add(botonMostrarEntradas);
 
         espectadorCSV = new EspectadorCSV();
         espectadores = SistemaFestival.getEspectadores();
-        espectadores.addAll(espectadorCSV.cargarEspectadores());
 
         funciones = SistemaFestival.getFunciones();
 
         entradaCSV = new EntradaCSV();
         entradas = SistemaFestival.getEntradas();
-        entradaCSV.cargarEntradas(entradas, espectadores, funciones);
 
         botonEspectador.addActionListener(e -> {
             System.out.println("Boton crear espectador presionado");

@@ -35,20 +35,32 @@ public class VentanaFestival extends JFrame {
         JButton botonCrearEdicion = new JButton("Crear edición");
         JButton botonMostrarEdiciones = new JButton("Mostrar ediciones");
 
+        Dimension tamañoBoton = new Dimension(170, 35);
+
+        JButton[] botones = {botonCrearFestival, botonCrearEdicion, botonMostrarEdiciones};
+
+        for (int i = 0; i < botones.length; i++) {
+            botones[i].setMaximumSize(
+                    tamañoBoton
+            );
+        }
+
         panelMenu.setLayout(new BoxLayout(panelMenu, BoxLayout.Y_AXIS));
 
         panelFormulario = new JPanel();
 
+        panelTitulo.add(Box.createVerticalStrut(60));
         panelTitulo.add(titulo);
+        panelMenu.add(Box.createVerticalStrut(10));
         panelMenu.add(botonCrearFestival);
+        panelMenu.add(Box.createVerticalStrut(10));
         panelMenu.add(botonCrearEdicion);
+        panelMenu.add(Box.createVerticalStrut(10));
         panelMenu.add(botonMostrarEdiciones);
 
         festivalCSV = new FestivalCSV();
         edicionCSV = new EdicionCSV();
         festivales = SistemaFestival.getFestivales();
-        festivales.addAll(festivalCSV.cargarFestivales());
-        edicionCSV.cargarEdiciones(festivales);
 
         botonCrearFestival.addActionListener(e -> {
             System.out.println("Boton Crear Festival presionado");

@@ -83,24 +83,27 @@ public class VentanaPeliculas extends JFrame {
         actorPeliculaCSV = new ActorPeliculaCSV();
 
         botonRegistrarPelicula.addActionListener(e -> {
-            System.out.println("Boton crear pelicula presionado");
             panelFormulario.removeAll();
 
-            JLabel tituloPelicula = new JLabel("Titulo de la pelicula: ");
+            panelFormulario.setLayout(new GridLayout(0, 2, 10,10));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos de la película"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
+
+            JLabel tituloPelicula = new JLabel("Titulo: ");
             JTextField datoTitulo = new JTextField(20);
-            JLabel genero = new JLabel("Genero de la pelicula: ");
+            JLabel genero = new JLabel("Genero: ");
             JTextField datoGenero = new JTextField(20);
-            JLabel duracion = new JLabel("Duración de la pelicula: ");
+            JLabel duracion = new JLabel("Duración: ");
             JTextField datoDuracion = new JTextField(20);
-            JLabel nombreDirector = new JLabel("Nombre del director de la pelicula: ");
+            JLabel nombreDirector = new JLabel("Nombre del director: ");
             JTextField datoNombreDirector = new JTextField(20);
-            JLabel apellidoDirector = new JLabel("Apellido del director de la pelicula: ");
+            JLabel apellidoDirector = new JLabel("Apellido del director: ");
             JTextField datoApellidoDirector = new JTextField(20);
-            JLabel edadDirector = new JLabel("Edad del director de la pelicula: ");
+            JLabel edadDirector = new JLabel("Edad del director: ");
             JTextField datoEdadDirector = new JTextField(20);
-            JLabel fechaNacimientoDirector = new JLabel("Fecha de nacimiento del director de la pelicula: ");
+            JLabel fechaNacimientoDirector = new JLabel("Fecha de nacimiento: ");
             JTextField datoFechaNacimiento = new JTextField(20);
-            JLabel sexo = new JLabel("Sexo del director de la pelicula: ");
+            JLabel sexo = new JLabel("Sexo: ");
             JTextField datoSexo = new JTextField(20);
             JButton botonGuardar = new JButton("Guardar");
             JButton botonCancelar = new JButton("Cancelar");
@@ -193,18 +196,21 @@ public class VentanaPeliculas extends JFrame {
         });
 
         botonRegistrarDirector.addActionListener(e -> {
-            System.out.println("Boton crear director presionado");
             panelFormulario.removeAll();
 
-            JLabel nombreDirector = new JLabel("Nombre del director: ");
+            panelFormulario.setLayout(new GridLayout(0, 2, 10,10));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos del Director"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
+
+            JLabel nombreDirector = new JLabel("Nombre: ");
             JTextField datoNombreDirector = new JTextField(20);
-            JLabel apellidoDirector = new JLabel("Apellido del director: ");
+            JLabel apellidoDirector = new JLabel("Apellido: ");
             JTextField datoApellidoDirector = new JTextField(20);
-            JLabel edadDirector = new JLabel("Edad del director: ");
+            JLabel edadDirector = new JLabel("Edad: ");
             JTextField datoEdadDirector = new JTextField(20);
-            JLabel fechaNacimientoDirector = new JLabel("Fecha de nacimiento del director: ");
+            JLabel fechaNacimientoDirector = new JLabel("Fecha de nacimiento: ");
             JTextField datoFechaNacimiento = new JTextField(20);
-            JLabel sexo = new JLabel("Sexo del director: ");
+            JLabel sexo = new JLabel("Sexo: ");
             JTextField datoSexo = new JTextField(20);
             JButton botonGuardar = new JButton("Guardar");
             JButton botonCancelar = new JButton("Cancelar");
@@ -285,18 +291,21 @@ public class VentanaPeliculas extends JFrame {
         });
 
         botonRegistrarActor.addActionListener(e -> {
-            System.out.println("Boton crear actor presionado");
             panelFormulario.removeAll();
 
-            JLabel nombreActor = new JLabel("Nombre del actor: ");
+            panelFormulario.setLayout(new GridLayout(0, 2, 10,10));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos del actor"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
+
+            JLabel nombreActor = new JLabel("Nombre: ");
             JTextField datoNombreActor = new JTextField(20);
-            JLabel apellidoActor = new JLabel("Apellido del actor: ");
+            JLabel apellidoActor = new JLabel("Apellido: ");
             JTextField datoApellidoActor = new JTextField(20);
-            JLabel edadActor = new JLabel("Edad del actor: ");
+            JLabel edadActor = new JLabel("Edad: ");
             JTextField datoEdadActor = new JTextField(20);
-            JLabel fechaNacimientoActor = new JLabel("Fecha de nacimiento del actor: ");
+            JLabel fechaNacimientoActor = new JLabel("Fecha de nacimiento: ");
             JTextField datoFechaNacimiento = new JTextField(20);
-            JLabel sexo = new JLabel("Sexo del actor: ");
+            JLabel sexo = new JLabel("Sexo: ");
             JTextField datoSexo = new JTextField(20);
             JButton botonGuardar = new JButton("Guardar");
             JButton botonCancelar = new JButton("Cancelar");
@@ -376,8 +385,6 @@ public class VentanaPeliculas extends JFrame {
         });
 
         botonAsociarActor.addActionListener(e -> {
-            System.out.println("Boton asociar actor presionado");
-
             if (peliculas.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         null,
@@ -394,6 +401,11 @@ public class VentanaPeliculas extends JFrame {
             }
 
             panelFormulario.removeAll();
+
+            panelFormulario.setLayout(new GridLayout(3, 2, 20, 20));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Asociar actor a la pelicula"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
+
 
             JComboBox<Pelicula> comboPelicula = new JComboBox<>();
             for (Iterator<Pelicula> i = peliculas.iterator(); i.hasNext();) {
@@ -454,7 +466,6 @@ public class VentanaPeliculas extends JFrame {
         });
 
         botonAsociarCat.addActionListener(e -> {
-            System.out.println("Boton Crear edicion presionado");
             if (peliculas.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         null, "Se debe crear una pelicula antes de asociar una categoria"
@@ -462,6 +473,10 @@ public class VentanaPeliculas extends JFrame {
                 return;
             } else {
                 panelFormulario.removeAll();
+
+                panelFormulario.setLayout(new GridLayout(0, 2, 10,15));
+
+                panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Asociar una categoria a la pelicula"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
 
                 JComboBox<Pelicula> comboPelicula = new JComboBox<>();
                 for (Iterator<Pelicula> i = peliculas.iterator(); i.hasNext(); ) {
@@ -530,7 +545,6 @@ public class VentanaPeliculas extends JFrame {
         });
 
         botonMostrarPeliculas.addActionListener(e -> {
-            System.out.println("Boton mostrar peliculas presionado");
             if (peliculas.isEmpty()){
                 JOptionPane.showMessageDialog(
                         null, "No hay películas registradas"
@@ -538,6 +552,10 @@ public class VentanaPeliculas extends JFrame {
                 return;
             }
             panelFormulario.removeAll();
+
+            panelFormulario.setLayout(new BorderLayout());
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Películas registradas"), BorderFactory.createEmptyBorder(10, 10, 10, 10)));
 
             JTextArea areaPeliculas = new JTextArea(15, 40);
             areaPeliculas.setEditable(false);
@@ -549,13 +567,21 @@ public class VentanaPeliculas extends JFrame {
 
             panelFormulario.add(scroll);
 
+            areaPeliculas.setLineWrap(true);
+            areaPeliculas.setWrapStyleWord(true);
+
+            scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
             panelFormulario.revalidate();
             panelFormulario.repaint();
         });
 
         add(panelTitulo, BorderLayout.NORTH);
         add(panelMenu, BorderLayout.WEST);
-        add(panelFormulario, BorderLayout.CENTER);
+        JPanel panelCentro = new JPanel(new BorderLayout());
+        panelCentro.setBorder(BorderFactory.createEmptyBorder(0, 30, 20, 30));
+        panelCentro.add(panelFormulario, BorderLayout.CENTER);
+        add(panelCentro, BorderLayout.CENTER);
         setVisible(true);
     }
 

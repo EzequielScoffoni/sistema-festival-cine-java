@@ -63,8 +63,11 @@ public class VentanaFestival extends JFrame {
         festivales = SistemaFestival.getFestivales();
 
         botonCrearFestival.addActionListener(e -> {
-            System.out.println("Boton Crear Festival presionado");
             panelFormulario.removeAll();
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos del festival"), BorderFactory.createEmptyBorder(20, 20, 20, 20)));
+
+            panelFormulario.setLayout(new FlowLayout());
 
             JLabel tituloCrear = new JLabel("Nombre del festival: ");
             JTextField datosFestival = new JTextField(20);
@@ -115,13 +118,17 @@ public class VentanaFestival extends JFrame {
         });
 
         botonCrearEdicion.addActionListener(e -> {
-            System.out.println("Boton Crear edicion presionado");
             if (festivales.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         null, "Se debe crear un festival antes de registrar una edición"
                 );
             } else {
                 panelFormulario.removeAll();
+
+                panelFormulario.setLayout(new GridLayout(0, 2, 10,10));
+
+                panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos de la edicion"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
+
 
                 JLabel nroEdicion = new JLabel("Numero de la edición: ");
                 JTextField datoNroEdicion = new JTextField(5);
@@ -205,7 +212,6 @@ public class VentanaFestival extends JFrame {
         });
 
         botonMostrarEdiciones.addActionListener(e -> {
-            System.out.println("Boton mostrar ediciones presionado");
             if (festivales.isEmpty()){
                 JOptionPane.showMessageDialog(
                         null, "Debe crear un festival primero"
@@ -213,6 +219,10 @@ public class VentanaFestival extends JFrame {
                 return;
             }
             panelFormulario.removeAll();
+
+            panelFormulario.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 15));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Ediciones del festival"), BorderFactory.createEmptyBorder(20, 20, 20, 20)));
 
             JComboBox<Festival> comboFestival = new JComboBox<>();
             for (Iterator<Festival> i = festivales.iterator(); i.hasNext(); ) {
@@ -249,7 +259,10 @@ public class VentanaFestival extends JFrame {
 
         add(panelTitulo, BorderLayout.NORTH);
         add(panelMenu, BorderLayout.WEST);
-        add(panelFormulario, BorderLayout.CENTER);
+        JPanel panelCentro = new JPanel(new BorderLayout());
+        panelCentro.setBorder(BorderFactory.createEmptyBorder(0, 30, 20, 30));
+        panelCentro.add(panelFormulario, BorderLayout.CENTER);
+        add(panelCentro, BorderLayout.CENTER);
         setVisible(true);
 
     }

@@ -67,22 +67,25 @@ public class VentanaEntradas extends JFrame {
         entradas = SistemaFestival.getEntradas();
 
         botonEspectador.addActionListener(e -> {
-            System.out.println("Boton crear espectador presionado");
             panelFormulario.removeAll();
 
-            JLabel nombreEspectador = new JLabel("Nombre del espectador: ");
+            panelFormulario.setLayout(new GridLayout(0, 2, 10,10));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos del espectador"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
+
+            JLabel nombreEspectador = new JLabel("Nombre: ");
             JTextField datoNombreEspec = new JTextField(20);
-            JLabel apellidoEspectador = new JLabel("Apellido del espectador: ");
+            JLabel apellidoEspectador = new JLabel("Apellido: ");
             JTextField datoApellidoEspec = new JTextField(20);
-            JLabel edadEspec = new JLabel("Edad del espectador: ");
+            JLabel edadEspec = new JLabel("Edad: ");
             JTextField datoEdadEspec = new JTextField(20);
-            JLabel fechaNacimientoEspec = new JLabel("Fecha de nacimiento del espectador: ");
+            JLabel fechaNacimientoEspec = new JLabel("Fecha de nacimiento: ");
             JTextField datoFechaNacimientoEspec = new JTextField(20);
-            JLabel sexoEspec = new JLabel("Sexo del espectador: ");
+            JLabel sexoEspec = new JLabel("Sexo: ");
             JTextField datoSexo = new JTextField(20);
-            JLabel dniEspec = new JLabel("DNI espectador: ");
+            JLabel dniEspec = new JLabel("DNI: ");
             JTextField datoDni = new JTextField(20);
-            JLabel emailEspec = new JLabel("Email espectador: ");
+            JLabel emailEspec = new JLabel("Email: ");
             JTextField datoEmail = new JTextField(20);
             JButton botonGuardar = new JButton("Guardar");
             JButton botonCancelar = new JButton("Cancelar");
@@ -171,8 +174,6 @@ public class VentanaEntradas extends JFrame {
         });
 
         botonVentaEntrada.addActionListener(e -> {
-            System.out.println("Boton venta entrada presionado");
-
             if (funciones.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         null, "Debe registrar una función primero."
@@ -187,6 +188,10 @@ public class VentanaEntradas extends JFrame {
                 return;
             }
             panelFormulario.removeAll();
+
+            panelFormulario.setLayout(new GridLayout(0, 2, 10,10));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Venta de entrada"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
 
             JComboBox<Funcion> comboFuncion = new JComboBox<>();
             for (Iterator<Funcion> i = funciones.iterator(); i.hasNext(); ) {
@@ -274,7 +279,6 @@ public class VentanaEntradas extends JFrame {
         });
 
         botonMostrarEntradas.addActionListener(e -> {
-            System.out.println("Boton mostrar entradas presionado");
             if (funciones.isEmpty()){
                 JOptionPane.showMessageDialog(
                         null, "No hay funciones registradas"
@@ -283,15 +287,25 @@ public class VentanaEntradas extends JFrame {
             }
             panelFormulario.removeAll();
 
+            panelFormulario.setLayout(new BorderLayout());
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Entradas registradas"), BorderFactory.createEmptyBorder(15, 15, 15, 15)));
+
             JTextArea areaEntradas = new JTextArea(15, 40);
             areaEntradas.setEditable(false);
-            JScrollPane scroll = new JScrollPane(areaEntradas);
+            areaEntradas.setLineWrap(true);
+            areaEntradas.setWrapStyleWord(true);
+
             for (Iterator<Entrada> i = entradas.iterator(); i.hasNext();) {
                 Entrada entradaActual = i.next();
-                areaEntradas.append(entradaActual.obtenerInformacion() + "\n\n----------------------------------\n\n");
-            }
+                areaEntradas.append(
+                        entradaActual.obtenerInformacion()
+                                + "\n\n-------------------------------------------------------\n\n"
+                );}
 
-            panelFormulario.add(scroll);
+            JScrollPane scroll = new JScrollPane(areaEntradas);
+
+            panelFormulario.add(scroll, BorderLayout.CENTER);
 
             panelFormulario.revalidate();
             panelFormulario.repaint();
@@ -299,7 +313,10 @@ public class VentanaEntradas extends JFrame {
 
         add(panelTitulo, BorderLayout.NORTH);
         add(panelMenu, BorderLayout.WEST);
-        add(panelFormulario, BorderLayout.CENTER);
+        JPanel panelCentro = new JPanel(new BorderLayout());
+        panelCentro.setBorder(BorderFactory.createEmptyBorder(0, 30, 20, 30));
+        panelCentro.add(panelFormulario, BorderLayout.CENTER);
+        add(panelCentro, BorderLayout.CENTER);
         setVisible(true);
 
     }

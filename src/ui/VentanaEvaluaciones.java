@@ -72,18 +72,21 @@ public class VentanaEvaluaciones extends JFrame {
         peliculas = SistemaFestival.getPeliculas();
 
         botonJurado.addActionListener(e -> {
-            System.out.println("Boton crear jurado presionado");
             panelFormulario.removeAll();
 
-            JLabel nombreJurado = new JLabel("Nombre del jurado: ");
+            panelFormulario.setLayout(new GridLayout(0, 2, 10,10));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos del jurado"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
+
+            JLabel nombreJurado = new JLabel("Nombre: ");
             JTextField datoNombreJurado = new JTextField(20);
-            JLabel apellidoJurado = new JLabel("Apellido del jurado: ");
+            JLabel apellidoJurado = new JLabel("Apellido: ");
             JTextField datoApellidoJurado = new JTextField(20);
-            JLabel edadJurado = new JLabel("Edad del jurado: ");
+            JLabel edadJurado = new JLabel("Edad: ");
             JTextField datoEdadJurado = new JTextField(20);
-            JLabel fechaNacimientoJurado = new JLabel("Fecha de nacimiento del jurado: ");
+            JLabel fechaNacimientoJurado = new JLabel("Fecha de nacimiento: ");
             JTextField datoFechaNacimiento = new JTextField(20);
-            JLabel sexoJurado = new JLabel("Sexo del jurado: ");
+            JLabel sexoJurado = new JLabel("Sexo: ");
             JTextField datoSexo = new JTextField(20);
             JButton botonGuardar = new JButton("Guardar");
             JButton botonCancelar = new JButton("Cancelar");
@@ -178,6 +181,10 @@ public class VentanaEvaluaciones extends JFrame {
             }
             panelFormulario.removeAll();
 
+            panelFormulario.setLayout(new GridLayout(0, 2, 10,10));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos de la evaluacion"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
+
             JComboBox<Pelicula> comboPelicula = new JComboBox<>();
             for (Iterator<Pelicula> i = peliculas.iterator(); i.hasNext();) {
                 comboPelicula.addItem(i.next());
@@ -259,16 +266,26 @@ public class VentanaEvaluaciones extends JFrame {
             }
             panelFormulario.removeAll();
 
+            panelFormulario.setLayout(new FlowLayout(FlowLayout.CENTER));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos del promedio"), BorderFactory.createEmptyBorder(20, 20, 20, 20)));
+
+            JPanel fila1 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+            JPanel fila2 = new JPanel(new FlowLayout(FlowLayout.CENTER));
             JComboBox<Pelicula> comboPelicula = new JComboBox<>();
             for (Iterator<Pelicula> i = peliculas.iterator(); i.hasNext();) {
                 comboPelicula.addItem(i.next());
             }
             JButton botonObtener = new JButton("Obtener promedio");
             JButton botonCancelar = new JButton("Cancelar");
-            panelFormulario.add(new JLabel("Película: "));
-            panelFormulario.add(comboPelicula);
-            panelFormulario.add(botonObtener);
-            panelFormulario.add(botonCancelar);
+
+            fila1.add(new JLabel("Película: "));
+            fila1.add(comboPelicula);
+
+            fila2.add(botonObtener);
+            fila2.add(botonCancelar);
+            panelFormulario.add(fila1);
+            panelFormulario.add(fila2);
 
             botonObtener.addActionListener(e1 -> {
                 Pelicula pelicula = (Pelicula) comboPelicula.getSelectedItem();
@@ -294,8 +311,6 @@ public class VentanaEvaluaciones extends JFrame {
         });
 
         botonPeliculaGanadora.addActionListener(e -> {
-            System.out.println("Boton pelicula ganadora presionado");
-
             if (peliculas.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         null, "No hay películas registradas."
@@ -323,7 +338,7 @@ public class VentanaEvaluaciones extends JFrame {
             }
             JOptionPane.showMessageDialog(
                     null,
-                    "La película ganadora es:\n"
+                    "Película ganadora:\n"
                             + peliculaGanadora.getTitulo()
                             + "\nPromedio: "
                             + mejorPromedio
@@ -332,7 +347,10 @@ public class VentanaEvaluaciones extends JFrame {
 
         add(panelTitulo, BorderLayout.NORTH);
         add(panelMenu, BorderLayout.WEST);
-        add(panelFormulario, BorderLayout.CENTER);
+        JPanel panelCentro = new JPanel(new BorderLayout());
+        panelCentro.setBorder(BorderFactory.createEmptyBorder(0, 30, 20, 30));
+        panelCentro.add(panelFormulario, BorderLayout.CENTER);
+        add(panelCentro, BorderLayout.CENTER);
         setVisible(true);
 
     }

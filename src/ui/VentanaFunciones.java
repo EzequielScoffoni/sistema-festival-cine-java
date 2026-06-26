@@ -80,21 +80,39 @@ public class VentanaFunciones extends JFrame {
 
 
         botonRegistrarSala.addActionListener(e -> {
-            System.out.println("Boton registrar sala presionado");
             panelFormulario.removeAll();
 
+            panelFormulario.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos de la sala"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
+
+            JPanel fila1 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+            JPanel fila2 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+            JPanel filaBotones = new JPanel(new FlowLayout(FlowLayout.CENTER));
             JLabel nroSala = new JLabel("Número de sala: ");
-            JTextField datosSala = new JTextField(10);
+            JTextField datosSala = new JTextField(15);
             JLabel cantidadButacas = new JLabel("Cantidad de butacas: ");
-            JTextField datosButacas = new JTextField(10);
+            JTextField datosButacas = new JTextField(15);
             JButton botonGuardar = new JButton("Guardar");
             JButton botonCancelar = new JButton("Cancelar");
-            panelFormulario.add(nroSala);
-            panelFormulario.add(datosSala);
-            panelFormulario.add(cantidadButacas);
-            panelFormulario.add(datosButacas);
-            panelFormulario.add(botonGuardar);
-            panelFormulario.add(botonCancelar);
+
+            Dimension tamañoLabel = new Dimension(170, 25);
+            nroSala.setPreferredSize(tamañoLabel);
+            cantidadButacas.setPreferredSize(tamañoLabel);
+
+            Dimension tamanioBoton = new Dimension(130, 35);
+            botonGuardar.setPreferredSize(tamanioBoton);
+            botonCancelar.setPreferredSize(tamanioBoton);
+
+            fila1.add(nroSala);
+            fila1.add(datosSala);
+            fila2.add(cantidadButacas);
+            fila2.add(datosButacas);
+            filaBotones.add(botonGuardar);
+            filaBotones.add(botonCancelar);
+            panelFormulario.add(fila1);
+            panelFormulario.add(fila2);
+            panelFormulario.add(filaBotones);
 
             botonGuardar.addActionListener(e1 -> {
                 try {
@@ -164,7 +182,6 @@ public class VentanaFunciones extends JFrame {
         });
 
         botonProgramarFuncion.addActionListener(e -> {
-            System.out.println("Boton programar funcion presionado.");
             if (peliculas.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         null, "Debe registrar una pelicula primero."
@@ -185,9 +202,13 @@ public class VentanaFunciones extends JFrame {
             }
             panelFormulario.removeAll();
 
-            JLabel fechaFuncion = new JLabel("Fecha de la funcion (dd/mm/yyyy): ");
+            panelFormulario.setLayout(new GridLayout(0, 2, 10,10));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos de la funcion"), BorderFactory.createEmptyBorder(20, 20,20, 20)));
+
+            JLabel fechaFuncion = new JLabel("Fecha (dd/mm/yyyy): ");
             JTextField datoFecha = new JTextField(15);
-            JLabel horaFucion = new JLabel("Hora de la funcion (hh:mm)");
+            JLabel horaFucion = new JLabel("Hora (hh:mm)");
             JTextField datoHora = new JTextField(15);
             JComboBox<Pelicula> comboPelicula = new JComboBox<>();
             for (Iterator<Pelicula> i = peliculas.iterator(); i.hasNext();) {
@@ -274,7 +295,6 @@ public class VentanaFunciones extends JFrame {
         });
 
         botonDisponibilidad.addActionListener(e -> {
-            System.out.println("Boton verificar disponibilidad presionado.");
             if (funciones.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         null, "No hay funciones registradas."
@@ -283,17 +303,36 @@ public class VentanaFunciones extends JFrame {
             }
             panelFormulario.removeAll();
 
+            panelFormulario.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos de la disponibilidad"), BorderFactory.createEmptyBorder(20, 20, 20, 20)));
+
+            JPanel fila1 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+            JPanel filaBotones = new JPanel(new FlowLayout(FlowLayout.CENTER));
+            JLabel funcion = new JLabel("Función:");
+
+            Dimension tamañoLabel = new Dimension(170, 25);
+            funcion.setPreferredSize(tamañoLabel);
+
             JComboBox<Funcion> comboFuncion = new JComboBox<>();
             for (Iterator<Funcion> i = funciones.iterator(); i.hasNext();) {
                 comboFuncion.addItem(i.next());
             }
+            comboFuncion.setPreferredSize(new Dimension(180, 25));
+
             JButton botonConsultar = new JButton("Consultar");
             JButton botonCancelar = new JButton("Cancelar");
 
-            panelFormulario.add(new JLabel("Función:"));
-            panelFormulario.add(comboFuncion);
-            panelFormulario.add(botonConsultar);
-            panelFormulario.add(botonCancelar);
+            Dimension tamanioBoton = new Dimension(130, 35);
+            botonConsultar.setPreferredSize(tamanioBoton);
+            botonCancelar.setPreferredSize(tamanioBoton);
+
+            fila1.add(funcion);
+            fila1.add(comboFuncion);
+            filaBotones.add(botonConsultar);
+            filaBotones.add(botonCancelar);
+            panelFormulario.add(fila1);
+            panelFormulario.add(filaBotones);
 
             botonConsultar.addActionListener(e1 -> {
 
@@ -326,7 +365,6 @@ public class VentanaFunciones extends JFrame {
         });
 
         botonMostrarFunciones.addActionListener(e -> {
-            System.out.println("Boton mostrar funciones presionado");
             if (funciones.isEmpty()){
                 JOptionPane.showMessageDialog(
                         null, "No hay funciones registradas"
@@ -335,22 +373,28 @@ public class VentanaFunciones extends JFrame {
             }
             panelFormulario.removeAll();
 
+            panelFormulario.setLayout(new BorderLayout());
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Funciones registradas"), BorderFactory.createEmptyBorder(15, 15, 15, 15)));
+
             JTextArea areaFunciones = new JTextArea(15, 40);
             areaFunciones.setEditable(false);
-            JScrollPane scroll = new JScrollPane(areaFunciones);
+            areaFunciones.setLineWrap(true);
+            areaFunciones.setWrapStyleWord(true);
             for (Iterator<Funcion> i = funciones.iterator(); i.hasNext();) {
                 Funcion funcionActual = i.next();
-                areaFunciones.append(funcionActual.obtenerInformacion() + "\n\n----------------------------------\n\n");
+                areaFunciones.append(funcionActual.obtenerInformacion()
+                        + "\n\n----------------------------------\n\n");
             }
 
-            panelFormulario.add(scroll);
+            JScrollPane scroll = new JScrollPane(areaFunciones);
 
+            panelFormulario.add(scroll, BorderLayout.CENTER);
             panelFormulario.revalidate();
             panelFormulario.repaint();
         });
 
         botonOcupacion.addActionListener(e -> {
-            System.out.println("Boton consultar ocupación presionado.");
             if (funciones.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         null, "No hay funciones registradas."
@@ -359,17 +403,26 @@ public class VentanaFunciones extends JFrame {
             }
             panelFormulario.removeAll();
 
+            panelFormulario.setLayout(new GridLayout(2, 1, 10, 20));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Datos de la ocupación"), BorderFactory.createEmptyBorder(10, 20, 20, 20)));
+
             JComboBox<Funcion> comboFuncion = new JComboBox<>();
             for (Iterator<Funcion> i = funciones.iterator(); i.hasNext();) {
                 comboFuncion.addItem(i.next());
             }
+            comboFuncion.setPreferredSize(new Dimension(160, 25));
             JButton botonObtener = new JButton("Obtener");
             JButton botonCancelar = new JButton("Cancelar");
+            JPanel fila1 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+            fila1.add(new JLabel("Función:"));
+            fila1.add(comboFuncion);
 
-            panelFormulario.add(new JLabel("Función:"));
-            panelFormulario.add(comboFuncion);
-            panelFormulario.add(botonObtener);
-            panelFormulario.add(botonCancelar);
+            JPanel filaBotones = new JPanel(new FlowLayout(FlowLayout.CENTER));
+            filaBotones.add(botonObtener);
+            filaBotones.add(botonCancelar);
+            panelFormulario.add(fila1);
+            panelFormulario.add(filaBotones);
 
             botonObtener.addActionListener(e1 -> {
                 Funcion funcionSeleccionada = (Funcion) comboFuncion.getSelectedItem();
@@ -394,7 +447,6 @@ public class VentanaFunciones extends JFrame {
         });
 
         botonPorcentajeOcupacion.addActionListener(e -> {
-            System.out.println("Boton porcentaje ocupación presionado.");
             if (funciones.isEmpty()) {
                 JOptionPane.showMessageDialog(
                         null, "No hay funciones registradas."
@@ -403,24 +455,42 @@ public class VentanaFunciones extends JFrame {
             }
             panelFormulario.removeAll();
 
+            panelFormulario.setLayout(new GridLayout(2, 1, 10, 20));
+
+            panelFormulario.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Porcentaje de ocupacion"), BorderFactory.createEmptyBorder(10, 20, 20, 20)));
+
             JComboBox<Funcion> comboFuncion = new JComboBox<>();
             for (Iterator<Funcion> i = funciones.iterator(); i.hasNext();) {
                 comboFuncion.addItem(i.next());
             }
+            comboFuncion.setPreferredSize(new Dimension(160, 25));
             JButton botonObtener = new JButton("Obtener");
             JButton botonCancelar = new JButton("Cancelar");
+            JPanel fila1 = new JPanel(new FlowLayout(FlowLayout.CENTER));
+            fila1.add(new JLabel("Función:"));
+            fila1.add(comboFuncion);
 
-            panelFormulario.add(new JLabel("Función:"));
-            panelFormulario.add(comboFuncion);
-            panelFormulario.add(botonObtener);
-            panelFormulario.add(botonCancelar);
+            JPanel filaBotones = new JPanel(new FlowLayout(FlowLayout.CENTER));
+            filaBotones.add(botonObtener);
+            filaBotones.add(botonCancelar);
+            panelFormulario.add(fila1);
+            panelFormulario.add(filaBotones);
 
             botonObtener.addActionListener(e1 -> {
                 Funcion funcionSeleccionada = (Funcion) comboFuncion.getSelectedItem();
                 double porcentaje = funcionSeleccionada.obtenerPorcentajeOcupacion();
-                JOptionPane.showMessageDialog(
-                        null, "La función tiene un " + porcentaje + " % de ocupación."
-                );
+
+                JProgressBar barra = new JProgressBar(0, 100);
+                barra.setValue((int) porcentaje);
+                barra.setStringPainted(true);
+
+                JPanel panel = new JPanel(new BorderLayout(10, 10));
+                panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+                panel.add(new JLabel("Porcentaje de ocupación:"), BorderLayout.NORTH);
+                panel.add(barra, BorderLayout.CENTER);
+
+                JOptionPane.showMessageDialog(null, panel, "Ocupación", JOptionPane.INFORMATION_MESSAGE);
+
             });
 
             botonCancelar.addActionListener(e1 -> {
@@ -440,7 +510,10 @@ public class VentanaFunciones extends JFrame {
 
         add(panelTitulo, BorderLayout.NORTH);
         add(panelMenu, BorderLayout.WEST);
-        add(panelFormulario, BorderLayout.CENTER);
+        JPanel panelCentro = new JPanel(new BorderLayout());
+        panelCentro.setBorder(BorderFactory.createEmptyBorder(0, 30, 20, 30));
+        panelCentro.add(panelFormulario, BorderLayout.CENTER);
+        add(panelCentro, BorderLayout.CENTER);
         setVisible(true);
 
     }

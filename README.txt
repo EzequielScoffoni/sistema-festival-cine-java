@@ -1,5 +1,7 @@
 SISTEMA DE GESTIÓN DE FESTIVAL DE CINE
 
+Etapa 2:
+
 Supuestos realizados:
 
 * Se asumió que los datos ingresados por el usuario son válidos para el funcionamiento general del sistema.
@@ -18,3 +20,23 @@ Decisiones relevantes de implementación:
 * Se priorizó el encapsulamiento utilizando atributos privados y métodos específicos para gestionar el comportamiento de las entidades.
 * Las relaciones entre entidades se gestionan mediante métodos como agregarActor(), agregarCategoria(), agregarFuncion(), agregarEvaluacion() y registrarEntrada().
 * La extensión de promociones permite validar promociones vigentes y calcular descuentos aplicados a pagos.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Etapa 3:
+
+Supuestos realizados:
+
+* Se mantuvo la lógica de negocio desarrollada en la Etapa 2, incorporando únicamente una interfaz gráfica utilizando Java Swing.
+* Se asumió que el usuario interactúa con la aplicación exclusivamente mediante la interfaz gráfica, reemplazando completamente la versión por consola.
+* Se conservaron los mecanismos de persistencia implementados previamente, permitiendo mantener la información almacenada entre ejecuciones de la aplicación.
+
+Decisiones relevantes de implementación:
+
+* Se desarrolló una ventana principal desde la cual es posible acceder a todos los módulos del sistema: festivales, películas, funciones, entradas y evaluaciones.
+* La interfaz fue implementada utilizando componentes de Java Swing como JFrame, JPanel, JButton, JLabel, JTextField, JComboBox, JTextArea, JScrollPane, JOptionPane y JProgressBar.
+* Se mantuvo la separación entre la interfaz gráfica y la lógica de negocio, delegando las operaciones a las clases del modelo y los servicios correspondientes.
+* Se incorporaron validaciones sobre los datos ingresados mediante la interfaz gráfica, informando los errores y operaciones exitosas mediante cuadros de diálogo.
+* Se implementó confirmación antes de cancelar operaciones para evitar la pérdida accidental de información ingresada.
+* Se reorganizó la presentación visual de los formularios para mantener un diseño uniforme y mejorar la experiencia de usuario mediante bordes, distribución consistente de componentes y áreas de visualización con desplazamiento cuando corresponde.
+* Se reutilizó la estructura de paquetes existente (modelo, servicios, persistencia, excepciones, ui y app), manteniendo una adecuada separación de responsabilidades.
